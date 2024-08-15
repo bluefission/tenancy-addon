@@ -16,7 +16,7 @@
         {
             "type": "vcs",
             "url": "https://github.com/bluefission/develation"
-        },
+        }
     ],
     "minimum-stability": "dev",
     "require": {
