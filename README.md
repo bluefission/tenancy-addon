@@ -1,6 +1,6 @@
 # Blue Fission Tenancy Addon
 
-![Blue Fission Technology](https://www.bluefission.com/logo.png)
+![Blue Fission Technology](https://bluefission.com/assets/img/logo-small.png)
 
 ## Overview
 
