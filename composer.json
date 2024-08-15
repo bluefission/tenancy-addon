@@ -1,0 +1,42 @@
+{
+    "name": "bluefission/tenancy-addon",
+    "description": "Plugin for multi-tenant identity management",
+    "license": "MIT",
+    "type": "opus-addon",
+    "keywords": ["multi-tenant", "tenancy", "users", "saas", "enterprise"],
+    "authors": [
+        {
+            "name": "Devon Scott",
+            "email": "dscott@bluefission.com",
+            "homepage": "https://bluefission.com",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bluefission/develation"
+        },
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "bluefission/develation": "^1.0.0-alpha",
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.1@dev",
+        "php": ">=8.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AddOns\\Tenancy\\": ""
+        },
+        "classmap": [
+           ""
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": { 
+            "AddOns\\Tenancy\\Tests\\": "tests/" 
+        }
+    }
+}

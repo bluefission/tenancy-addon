@@ -1,0 +1,11 @@
+{
+	"name": "tenancy-addon",
+	"version": "1.0.0",
+	"primary_file": "main.php",
+	"description": "AddOn for providing multi-tenant isolation for opus applications",
+	"namespace": "AddOns\\Tenancy",
+	"installer": ["AddOns\\Tenancy\\Registration\\TenancyRegistration", "install"],
+	"uninstaller": ["AddOns\\Tenancy\\Registration\\TenancyRegistration", "uninstall"],
+	"configs": [],
+	"libraries": []
+}
