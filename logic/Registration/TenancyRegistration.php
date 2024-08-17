@@ -39,8 +39,7 @@ class TenancyRegistration implements IExtension
 	
 	private function arguments()
 	{
-		$llmClient = $this->_app->configuration('tenancy')['llmClient'];
-		$this->_app->bindArgs( ['llmClient'=>$llmClient], 'App\Business\Services\ImageBasedAssessmentService');
+		// $data = $this->_app->configuration('tenancy');
 	}
 
 	private function bindings()
