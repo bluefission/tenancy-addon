@@ -3,7 +3,7 @@
 use BlueFission\BlueCore\Datasource\Generator;
 use Faker\Factory as Faker;
 use AddOns\Tenancy\Domain\Models\TenantModel;
-use AddOns\Tenancy\Domain\Models\TenantLogTypeModel;
+use AddOns\Tenancy\Domain\Models\LogTypeModel;
 use AddOns\Tenancy\Domain\Models\AddOnModel;
 use AddOns\Tenancy\Domain\Models\AddOnStatusModel;
 use AddOns\Tenancy\Domain\Models\SchemaModel;
@@ -11,7 +11,7 @@ use AddOns\Tenancy\Domain\Models\TenantAddOnInstallationModel;
 use AddOns\Tenancy\Domain\Models\DatabaseModel;
 use AddOns\Tenancy\Domain\Repositories\ITenantRepository;
 use AddOns\Tenancy\Domain\Repositories\IAddOnRepository;
-use AddOns\Tenancy\Domain\Enums\TenantLogTypeEnum;
+use AddOns\Tenancy\Domain\Enums\LogTypeEnum;
 use AddOns\Tenancy\Domain\Enums\AddOnStatusEnum;
 
 class DemoTenancyDataSeeder extends Generator
@@ -22,7 +22,7 @@ class DemoTenancyDataSeeder extends Generator
 
         // Instantiate Models
         $tenant = new TenantModel();
-        $logType = new TenantLogTypeModel();
+        $logType = new LogTypeModel();
         $addon = new AddOnModel();
         $addonStatus = new AddOnStatusModel();
         $schema = new SchemaModel();
@@ -75,7 +75,7 @@ class DemoTenancyDataSeeder extends Generator
             }
 
             // Seed logs for tenants
-            foreach (TenantLogTypeEnum::cases() as $logTypeEnum) {
+            foreach (LogTypeEnum::cases() as $logTypeEnum) {
                 $logType->clear();
                 $logType->name = $logTypeEnum->value;
                 $logType->description = $logTypeEnum->label();
