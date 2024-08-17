@@ -18,11 +18,11 @@ import "../../../../resource/src/js/modules/dashboard-ui/convert-colors.js";
 import { computed, get, set, assign } from "../../../../resource/src/js/modules/scripts/reactive_template.js";
 
 // Panels
-import HestiaPages from "./pages.js";
+// import HestiaPages from "./pages.js";
 // import Schedule from "./schedule.js";
 
 const Panels = {
-	pages: HestiaPages,
+	// pages: HestiaPages,
 	// schedule: Schedule,
 };
 
