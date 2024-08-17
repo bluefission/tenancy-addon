@@ -23,12 +23,8 @@ app.api.tenant.churn = function(callback) {
 	this._transaction('tenants/churn', data, 'GET', callback);
 }
 
-app.api.user.retention = function(callback) {
-	this._transaction('users/retention', data, 'GET', callback);
-}
-
-app.api.user.churn = function(callback) {
-	this._transaction('users/churn', data, 'GET', callback);
+app.api.tenant.lifetime = function(callback) {
+	this._transaction('tenants/avglifetime', data, 'GET', callback);
 }
 
 //== Class definition
@@ -51,12 +47,10 @@ var ModuleTenancyAddon = function() {
 	const kpi_01_value = new Reactor(0);
 	const kpi_02_name = new Reactor("Active Tenants");
 	const kpi_02_value = new Reactor(0);
-	const kpi_03_name = new Reactor("User Retention Rate");
+	const kpi_03_name = new Reactor("Tenant Churn Rate");
 	const kpi_03_value = new Reactor(0);
-	const kpi_04_name = new Reactor("User Churn Rate");
+	const kpi_04_name = new Reactor("Avg Lifetime");
 	const kpi_04_value = new Reactor(0);
-	const kpi_05_name = new Reactor("Tenant Churn Rate");
-	const kpi_05_value = new Reactor(0);
 
 	// Assign KPIs to the app
 	app.assign('kpi_01_name', kpi_01_name);
@@ -67,8 +61,6 @@ var ModuleTenancyAddon = function() {
 	app.assign('kpi_03_value', kpi_03_value);
 	app.assign('kpi_04_name', kpi_04_name);
 	app.assign('kpi_04_value', kpi_04_value);
-	app.assign('kpi_05_name', kpi_05_name);
-	app.assign('kpi_05_value', kpi_05_value);
 
 	// Assign model fields to UI elements
 	app.set('.tenant-id-field', model.tenant_id, 'value', inputOptions);
