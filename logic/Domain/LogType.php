@@ -4,7 +4,7 @@ namespace AddOns\Tenancy\Domain;
 
 use BlueFission\BlueCore\ValueObject;
 
-class TenantLogType extends ValueObject {
+class LogType extends ValueObject {
     public $log_type_id;
     public $name;
     public $description;

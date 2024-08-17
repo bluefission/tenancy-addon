@@ -1,0 +1,15 @@
+@template('templates/landing.html')
+@section('content')
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-7 col-xl-6">
+          <img src="assets/img/signup-image.jpg" class="img-fluid" alt="Sign Up image" />
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          @mod('signup-form.html')
+        </div>
+      </div>
+    </div>
+  </section>
+@endsection

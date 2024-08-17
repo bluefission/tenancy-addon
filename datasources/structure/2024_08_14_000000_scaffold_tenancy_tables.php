@@ -1,19 +1,19 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use BlueFission\BlueCore\Datasource\Delta;
+use BlueFission\Data\Storage\Structure\MySQLStructure as Structure;
+use BlueFission\Data\Storage\Structure\MySQLScaffold as Scaffold;
 
-class CreateMultiTenantAddonTables extends Migration
+class CreateMultiTenantAddonTables extends Delta
 {
-    public function up()
+    public function change()
     {
         // Tenants table: stores information about each tenant, including configuration details
         Scaffold::create('tenancy_tenants', function (Structure $entity) {
             $entity->incrementer('tenant_id');
             $entity->text('name');
             $entity->text('domain')->unique();
-            $entity->json('config')->nullable();
+            $entity->json('config')->null();
             $entity->timestamps();
             $entity->comment("Stores basic information and configurations for each tenant.");
         });
@@ -44,7 +44,7 @@ class CreateMultiTenantAddonTables extends Migration
             $entity->incrementer('schema_id');
             $entity->numeric('tenant_id')->foreign('tenancy_tenants', 'tenant_id');
             $entity->text('schema_name')->unique();
-            $entity->text('version')->nullable();
+            $entity->text('version')->null();
             $entity->timestamps();
             $entity->comment("Stores information about each tenant's schema, including versioning.");
         });
@@ -53,10 +53,19 @@ class CreateMultiTenantAddonTables extends Migration
         Scaffold::create('tenancy_addons', function (Structure $entity) {
             $entity->incrementer('addon_id');
             $entity->text('name');
-            $entity->text('description')->nullable();
+            $entity->text('description')->null();
             $entity->text('version');
             $entity->timestamps();
             $entity->comment("Tracks available addons that can be installed for tenants.");
+        });
+
+        // AddOn Statuses: tracks the status of each addon installation for a tenant
+        Scaffold::create('tenancy_addon_statuses', function (Structure $entity) {
+            $entity->incrementer('addon_status_id');
+            $entity->text('name');
+            $entity->text('description')->null();
+            $entity->timestamps();
+            $entity->comment("Tracks the status of each addon installation for a tenant.");
         });
 
         // Tenant Addon Installations: links addons to tenant schemas, tracking installation status and versions
@@ -64,7 +73,7 @@ class CreateMultiTenantAddonTables extends Migration
             $entity->incrementer('installation_id');
             $entity->numeric('tenant_id')->foreign('tenancy_tenants', 'tenant_id');
             $entity->numeric('addon_id')->foreign('tenancy_addons', 'addon_id');
-            $entity->text('status')->default('installed');
+            $entity->numeric('addon_status_id')->foreign('tenancy_addon_statuses', 'addon_status_id');
             $entity->text('installed_version');
             $entity->timestamps();
             $entity->comment("Links addons to tenant schemas, tracking their installation and status.");
@@ -90,19 +99,28 @@ class CreateMultiTenantAddonTables extends Migration
             $entity->comment("Stores backup configurations for each tenant, including schedule and retention.");
         });
 
+        // Log Types: tracks the types of logs that can be generated
+        Scaffold::create('tenancy_log_types', function (Structure $entity) {
+            $entity->incrementer('log_type_id');
+            $entity->text('name');
+            $entity->text('description')->null();
+            $entity->timestamps();
+            $entity->comment("Tracks the types of logs that can be generated.");
+        });
+
         // Logs table: tracks tenant-specific actions and system logs
         Scaffold::create('tenancy_logs', function (Structure $entity) {
             $entity->incrementer('log_id');
             $entity->numeric('tenant_id')->foreign('tenancy_tenants', 'tenant_id');
             $entity->text('action');
-            $entity->text('details')->nullable();
-            $entity->text('log_type')->default('info');
+            $entity->text('details')->null();
+            $entity->numeric('log_type_id')->foreign('tenancy_log_types', 'log_type_id');
             $entity->timestamps();
             $entity->comment("Logs actions and events related to tenant management and addon operations.");
         });
     }
 
-    public function down()
+    public function revert()
     {
         Scaffold::delete('tenancy_logs');
         Scaffold::delete('tenancy_backup_configurations');

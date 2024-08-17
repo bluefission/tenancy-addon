@@ -1,0 +1,119 @@
+@template('templates/landing.html')
+@section('content')
+    <!-- Hero Section -->
+    <div class="p-5 text-center bg-light text-black" style="background: url(assets/img/main-banner.png); background-size: cover; background-position: center; min-height: 400px;">
+      <h1 class="mb-3">Welcome to Hestia</h1>
+      <h4 class="mb-4">Your Comprehensive Home Management Solution</h4>
+      <a class="btn btn-warning btn-lg" href="/seeker-signup" role="button">I'm Looking for Lodging</a>
+      <a class="btn btn-primary btn-lg" href="/owner-signup" role="button">I Own or Manage Lodging</a>
+    </div>
+    <!-- Hero Section -->
+
+    <!-- KPI Metrics Section -->
+    <div class="container my-5">
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{kpi_01_name}</h5>
+              <p class="card-text">{kpi_01_value}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{kpi_02_name}</h5>
+              <p class="card-text">{kpi_02_value}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{kpi_03_name}</h5>
+              <p class="card-text">{kpi_03_value}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{kpi_04_name}</h5>
+              <p class="card-text">{kpi_04_value}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- KPI Metrics Section -->
+
+    <!-- Mission Section -->
+    <div class="container my-5">
+      <section>
+        <h2 class="text-center mb-4">Our Mission</h2>
+        <p class="text-center">
+          At Hestia, our mission is to increase housing security by providing a comprehensive platform that connects residents, service providers, and facilitators. We strive to make housing services accessible, efficient, and seamless for all users.
+        </p>
+      </section>
+    </div>
+    <!-- Mission Section -->
+
+    <!-- Process Section -->
+    <div class="container my-5">
+      <section>
+        <h2 class="text-center mb-4">Our Process</h2>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <i class="fas fa-search fa-3x mb-3 text-warning"></i>
+            <h5>Find</h5>
+            <p>Search for lodging opportunities, home services, and more through our automated matchmaking system.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-hands-helping fa-3x mb-3 text-warning"></i>
+            <h5>Connect</h5>
+            <p>Connect with service providers and facilitators to ensure your housing needs are met efficiently.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-home fa-3x mb-3 text-warning"></i>
+            <h5>Secure</h5>
+            <p>Secure your housing with the help of our platform, ensuring a smooth and stress-free experience.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Process Section -->
+
+    <!-- Benefits Section -->
+    <div class="container my-5">
+      <section>
+        <h2 class="text-center mb-4">Benefits</h2>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <i class="fas fa-check-circle fa-3x mb-3 text-warning"></i>
+            <h5>Easy to Use</h5>
+            <p>Our platform is user-friendly and easy to navigate, making it simple to find and secure housing.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-clock fa-3x mb-3 text-warning"></i>
+            <h5>Time-Saving</h5>
+            <p>Save time by using our automated matchmaking system to find the best housing and service providers for your needs.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-shield-alt fa-3x mb-3 text-warning"></i>
+            <h5>Secure</h5>
+            <p>We prioritize your security and privacy, ensuring a safe and reliable experience on our platform.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Benefits Section -->
+
+    <!-- Call to Action Section -->
+    <div class="p-5 text-center bg-light" style="background: url(assets/img/eternal-flame.png); background-size: cover; background-position: center; min-height: 400px;">
+      <h2 class="mb-3">Join Hestia Today</h2>
+      <p class="mb-4">Sign up now and start benefiting from our comprehensive home management solution.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Sign Up Now</a>
+    </div>
+    <!-- Call to Action Section -->
+@endsection

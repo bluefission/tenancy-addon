@@ -1,17 +1,17 @@
 <?php
 
 use BlueFission\BlueCore\Datasource\Generator;
-use AddOns\Tenancy\Domain\Models\TenantLogTypeModel;
+use AddOns\Tenancy\Domain\Models\LogTypeModel;
 use AddOns\Tenancy\Domain\Models\AddOnStatusModel;
-use AddOns\Tenancy\Domain\Enums\TenantLogTypeEnum;
+use AddOns\Tenancy\Domain\Enums\LogTypeEnum;
 use AddOns\Tenancy\Domain\Enums\AddOnStatusEnum;
 
 class SystemDataSeeder extends Generator
 {
     public function populate()
     {
-        foreach (TenantLogTypeEnum::cases() as $logType) {
-            $model = new TenantLogTypeModel();
+        foreach (LogTypeEnum::cases() as $logType) {
+            $model = new LogTypeModel();
             $model->name = $logType->value;
             $model->description = $logType->label();
             $model->write();

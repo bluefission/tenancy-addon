@@ -5,7 +5,7 @@ namespace AddOns\Tenancy\Domain;
 use BlueFission\BlueCore\ValueObject;
 
 class AddOnStatus extends ValueObject {
-    public $status_id;
+    public $addon_status_id;
     public $name;
     public $description;
     public $created_at;

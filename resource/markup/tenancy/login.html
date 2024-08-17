@@ -1,0 +1,23 @@
+@template('templates/landing.html')
+@section('content')
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="assets/img/login-image.jpg" alt="login form" class="img-fluid" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+              </div>
+              <div class="col-md-6 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  @mod('login-form.html')
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+@endsection

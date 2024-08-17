@@ -1,0 +1,71 @@
+@template('templates/loggedin.html')
+@section('content')
+  <!-- Jumbotron -->
+  <div class="p-5 text-center bg-light mb-5">
+    <h1 class="mb-3">Hestia</h1>
+    <h4 class="mb-4">Home is where the hearth is</h4>
+  </div>
+  <!-- Jumbotron -->
+
+  <div class="container">
+    <!-- KPI Metrics -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Occupied Lodgings</h5>
+            <p class="card-text">3</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Matched Searches</h5>
+            <p class="card-text">1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- First card: Lodging -->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="bg-image hover-overlay" data-mdb-ripple-color="light">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"
+              class="img-fluid"
+            />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">123 Main St, Springfield</h5>
+            <p class="card-text">Status: Occupied</p>
+            <a href="#!" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <!-- Second card: Add new lodging -->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <h5 class="card-title">Add New Lodging</h5>
+            <a href="#!" class="btn btn-success">Add Lodging</a>
+          </div>
+        </div>
+      </div>
+      <!-- Third card: Seeking lodging -->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <h5 class="card-title">Seeking Lodging</h5>
+            <a href="#!" class="btn btn-warning">Start Search</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection

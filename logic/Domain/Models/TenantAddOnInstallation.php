@@ -7,10 +7,10 @@ use BlueFission\BlueCore\Model\ModelSql as Model;
 class TenantAddOnInstallationModel extends Model {
     protected $_table = 'tenancy_tenant_addon_installations';
     protected $_fields = [
-        'installation_id',
+        'tenant_addon_installation_id',
         'tenant_id',
         'addon_id',
-        'status',
+        'addon_status_id',
         'installed_version',
         'created_at',
         'updated_at',
@@ -24,5 +24,10 @@ class TenantAddOnInstallationModel extends Model {
     public function addon()
     {
         return $this->ancestor(AddonModel::class, 'addon_id');
+    }
+
+    public function status()
+    {
+        return ancestor(AddOnStatusModel::class, 'addon_status_id');
     }
 }

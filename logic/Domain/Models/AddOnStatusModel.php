@@ -7,7 +7,7 @@ use BlueFission\BlueCore\Model\ModelSql as Model;
 class AddOnStatusModel extends Model {
     protected $_table = 'tenancy_addon_statuses';
     protected $_fields = [
-        'status_id',
+        'addon_status_id',
         'name',
         'description',
         'created_at',
