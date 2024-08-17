@@ -1,6 +1,6 @@
 <div class="container-fluid p-0">
-  <div id="lodging-listing-screen">
-    <h1 class="h3 mb-3">Lodgings</h1>
+  <div id="tenant-listing-screen">
+    <h1 class="h3 mb-3">Tenants</h1>
     <!-- metrics -->
     <div class="row">
       <div class="col-12 col-sm-6 col-xxl-3 d-flex">
@@ -11,13 +11,13 @@
                 <h3 class="mb-2">{kpi_01_value}</h3>
                 <p class="mb-2">{kpi_01_name}</p>
                 <div class="mb-0">
-                  <span class="badge badge-soft-success me-2"> +5.35% </span>
+                  <span class="badge badge-soft-success me-2"> +3.75% </span>
                   <span class="text-muted">Since last week</span>
                 </div>
               </div>
               <div class="d-inline-block ms-3">
                 <div class="stat">
-                  <i class="align-middle text-success" data-feather="home"></i>
+                  <i class="align-middle text-success" data-feather="users"></i>
                 </div>
               </div>
             </div>
@@ -32,13 +32,13 @@
                 <h3 class="mb-2">{kpi_02_value}</h3>
                 <p class="mb-2">{kpi_02_name}</p>
                 <div class="mb-0">
-                  <span class="badge badge-soft-danger me-2"> -4.25% </span>
+                  <span class="badge badge-soft-success me-2"> +6.25% </span>
                   <span class="text-muted">Since last week</span>
                 </div>
               </div>
               <div class="d-inline-block ms-3">
                 <div class="stat">
-                  <i class="align-middle text-danger" data-feather="users"></i>
+                  <i class="align-middle text-info" data-feather="check-circle"></i>
                 </div>
               </div>
             </div>
@@ -53,13 +53,13 @@
                 <h3 class="mb-2">{kpi_03_value}</h3>
                 <p class="mb-2">{kpi_03_name}</p>
                 <div class="mb-0">
-                  <span class="badge badge-soft-success me-2"> +8.65% </span>
+                  <span class="badge badge-soft-warning me-2"> -2.85% </span>
                   <span class="text-muted">Since last week</span>
                 </div>
               </div>
               <div class="d-inline-block ms-3">
                 <div class="stat">
-                  <i class="align-middle text-info" data-feather="briefcase"></i>
+                  <i class="align-middle text-warning" data-feather="refresh-cw"></i>
                 </div>
               </div>
             </div>
@@ -74,13 +74,13 @@
                 <h3 class="mb-2">{kpi_04_value}</h3>
                 <p class="mb-2">{kpi_04_name}</p>
                 <div class="mb-0">
-                  <span class="badge badge-soft-success me-2"> +8.65% </span>
+                  <span class="badge badge-soft-danger me-2"> -1.65% </span>
                   <span class="text-muted">Since last week</span>
                 </div>
               </div>
               <div class="d-inline-block ms-3">
                 <div class="stat">
-                  <i class="align-middle text-info" data-feather="user-check"></i>
+                  <i class="align-middle text-danger" data-feather="user-x"></i>
                 </div>
               </div>
             </div>
@@ -95,10 +95,10 @@
           <div class="card-header">
             <div class="card-actions float-end">
               <div class="dropdown position-relative">
-                <button href="#" id="lodging-add-btn" class="btn btn-primary btn-sm" data-bs-display="static">
+                <button href="#" id="tenant-add-btn" class="btn btn-primary btn-sm" data-bs-display="static">
                   <i class="align-middle" data-feather="plus-square"></i> Add New
                 </button> 
-                <button href="#" id="lodging-delete-btn" class="btn btn-danger btn-sm" data-bs-display="static">
+                <button href="#" id="tenant-delete-btn" class="btn btn-danger btn-sm" data-bs-display="static">
                   <i class="align-middle" data-feather="minus-square"></i> Delete
                 </button>
                 <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
@@ -110,14 +110,14 @@
                 </div>
               </div>
             </div>
-            <h5 class="card-title mb-0">Lodgings</h5>
+            <h5 class="card-title mb-0">Tenants</h5>
           </div>
           <div class="card-body">
             <table id="dataTable" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Description</th>
+                  <th>Domain</th>
                   <th>Status</th>
                   <th>Manage</th>
                 </tr>
@@ -125,12 +125,12 @@
               <tfoot>
                 <tr>
                   <th>Name</th>
-                  <th>Description</th>
+                  <th>Domain</th>
                   <th>Status</th>
                   <th>Manage</th>
                 </tr>
               </tfoot>
-              <tbody id="lodging-list">
+              <tbody id="tenant-list">
                 
               </tbody>
             </table>
@@ -139,7 +139,7 @@
       </div>
 
       <div class="col-xl-4">
-        <div class="card" id="lodging-preview">
+        <div class="card" id="tenant-preview">
           <div class="card-header">
             <div class="card-actions float-end">
               <div class="dropdown position-relative">
@@ -154,11 +154,11 @@
                 </div>
               </div>
             </div>
-            <h5 class="card-title mb-0">{lodging_name}</h5>
+            <h5 class="card-title mb-0">{tenant_name}</h5>
           </div>
           <div class="card-body">
-            <div id="lodging-details">
-              Select a lodging to view details.
+            <div id="tenant-details">
+              Select a tenant to view details.
             </div>
           </div>
         </div>
@@ -166,68 +166,46 @@
     </div>
   </div>
 
-  <div id="lodging-edit-screen">
+  <div id="tenant-edit-screen">
     <h1 class="h3 mb-3">
       <a href="#" class="home-btn">
         <i class="align-middle" data-feather="chevrons-left"></i>
       </a>
-      Lodging Information
+      Tenant Information
     </h1>
-    <form id="lodging-edit-form">
+    <form id="tenant-edit-form">
       <div class="row">
         <div class="col-12 col-lg-12">
           <div class="card">
             <div class="card-header">
-              <h5 class="card-title mb-0">Title</h5>
+              <h5 class="card-title mb-0">Name</h5>
             </div>
             <div class="card-body">
-              <input type="hidden" class="lodging-id-field" name="lodging-id-field">
+              <input type="hidden" class="tenant-id-field" name="tenant-id-field">
               <div class="form-group">
-                <label for="lodging-content" class="form-control-label">
-                  Name
+                <label for="tenant-name-field" class="form-control-label">
+                  Tenant Name
                 </label>
-                <input type="text" class="form-control lodging-name-field" name="lodging-name-field" placeholder="Name">
+                <input type="text" class="form-control tenant-name-field" name="tenant-name-field" placeholder="Name">
               </div>
               <div class="form-group">
-                <label for="lodging-content" class="form-control-label">
-                  Description
+                <label for="tenant-domain-field" class="form-control-label">
+                  Domain
                 </label>
-                <textarea class="form-control lodging-description-field" name="lodging-description-field" rows="2" placeholder="Description"></textarea>
+                <input type="text" class="form-control tenant-domain-field" name="tenant-domain-field" placeholder="Domain">
               </div>
               <div class="form-group">
                 <div class="form-check form-switch">
-                  <input class="form-check-input lodging-status-field" name="lodging-status-field" type="checkbox" value="1" id="flexSwitchCheckDefault">
-                  <label class="form-check-label" for="flexSwitchCheckDefault">Lodging is active?</label>
+                  <input class="form-check-input tenant-status-field" name="tenant-status-field" type="checkbox" value="1" id="tenantStatusSwitch">
+                  <label class="form-check-label" for="tenantStatusSwitch">Tenant is active?</label>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h5 class="card-title mb-0">Options</h5>
-            </div>
-            <div class="card-body">
-              <div>
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">
-                    Option one is this and that&mdash;be sure to include why it's great
-                  </span>
-                </label>
-                          <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">
-                    Option two is disabled
-                  </span>
-                </label>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary" id="lodging-save-btn">Submit</button>
+        <button type="submit" class="btn btn-primary" id="tenant-save-btn">Submit</button>
       </div>
     </form>
   </div>
@@ -240,18 +218,18 @@
   </div>
 </div>
 
-<script src="/assets/js/module-hestia-addon.js"></script>
-<script type="text/template" id="lodging-detail-display-item">
-      <div id="lodging-details">
+<script src="/assets/js/module-tenancy-addon.js"></script>
+<script type="text/template" id="tenant-detail-display-item">
+      <div id="tenant-details">
       <div>
-        <button href="#" id="lodging-edit-btn" class="btn btn-primary btn-sm float-end" data-bs-display="static">
+        <button href="#" id="tenant-edit-btn" class="btn btn-primary btn-sm float-end" data-bs-display="static">
           <i class="align-middle" data-feather="edit"></i> Edit
         </button>
       </div>
       <div class="row g-0">
         <div class="col-sm-9 col-xl-12 col-xxl-9">
-          <strong>Description</strong>
-          <p>{{description}}</p>
+          <strong>Domain</strong>
+          <p>{{domain}}</p>
         </div>
       </div>
 
